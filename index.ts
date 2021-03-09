@@ -12,10 +12,7 @@ app.use(cors())
 const PORT = process.env.PORT || 3000
 const SECRET = "SIMPLE_SECRET"
 
-interface DbSchema {
-  users: []
-  
-}
+
 
 interface JWTPayload {
   username: string;
