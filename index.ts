@@ -40,7 +40,7 @@ app.post('/register',
     const { username, password, firstname, lastname, balance } = req.body
     const hashPassword = bcrypt.hashSync(password,10)
     try{
-      const user = await User.create({
+      const user = await username.create({
         username,
       password:hashPassword,
       firstname,
@@ -52,11 +52,7 @@ app.post('/register',
         message:"Register successfully"
       }
       )
-    }catch(e){
-      if(e.username)
     }
-    
-    
   })
 
 app.get('/balance',
@@ -102,15 +98,7 @@ app.delete('/reset', (req, res) => {
   try {
     const data = jwt.verify(token, SECRET) as JWTPayload
 
-    const todo =  data.destroy({ where: { id, userId: data.id } })
-
-    if (todo === 0) {
-      res.status(404)
-      res.json({
-        
-      })
-      return
-    }
+    
 
     res.json({
       message: 'Deleted todo'
