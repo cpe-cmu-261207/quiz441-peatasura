@@ -107,7 +107,7 @@ app.delete('/reset', (req, res) => {
     if (todo === 0) {
       res.status(404)
       res.json({
-        message: 'This todo not found'
+        
       })
       return
     }
